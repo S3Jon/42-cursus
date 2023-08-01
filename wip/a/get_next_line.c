@@ -27,7 +27,10 @@ static  int ft_getloan(int fd, char **c)
             return (0);
         readbits = read(fd, temp, BUFFER_SIZE);
         if (readbits == -1)
+        {
+            free(temp);
             return (-1);
+        }
         if (readbits <= 0)
         {
             free(temp);
