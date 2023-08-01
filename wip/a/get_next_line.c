@@ -53,7 +53,6 @@ static  void ft_getloan(int fd, char **c)
     }
     else
         *c = ft_strjoin(*c, temp);
-    free(temp);
     if (ft_isthisline(*c) != -1)
         return ;
     }
