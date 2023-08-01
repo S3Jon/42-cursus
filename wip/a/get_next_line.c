@@ -33,10 +33,7 @@ static  void ft_getloan(int fd, char **c)
         }
         temp[readbits] = '\0';
     if (*c == NULL)
-    {
         *c = ft_strdup(temp);
-        free(temp);
-    }
     else
         *c = ft_strjoin(*c, temp);
     if (ft_isthisline(*c) != -1)
@@ -52,7 +49,6 @@ static char *ft_trimem(char **c)
     aux = ft_strdup(*c);
     if (!aux)
         return (NULL);
-    free(*c);
     if (ft_isthisline(aux) == -1)
         return (aux);
     retline = ft_substr(aux, 0, ft_isthisline(aux) + 1);
