@@ -57,9 +57,9 @@ static char *ft_trimem(char **c)
     free(*c); // Free the original memory before reassigning it the value of the concatenated string.
 
     if (ft_isthisline(aux) == 0)
-        retline = ft_substr(aux, 0, 2);
+        retline = ft_substr(aux, 0, 1);
     else
-        retline = ft_substr(aux, 0, ft_isthisline(aux) + 1);
+        retline = ft_substr(aux, 0, ft_strlen(aux));
     if (ft_isthisline(aux) == -1)
     {
         free(aux);
