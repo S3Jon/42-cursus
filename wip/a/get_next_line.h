@@ -16,7 +16,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024;
+#  define BUFFER_SIZE 1024
 # endif
 
 char	*ft_strdup(const char *s1);
