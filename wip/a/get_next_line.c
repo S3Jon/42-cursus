@@ -53,15 +53,15 @@ static char *ft_trimem(char **c)
     if (!aux)
         return (NULL);
     free(*c);
-    if (ft_isthisline(aux) == -1)
+    int newline_index = ft_isthisline(aux);
+    if (newline_index == -1)
     {
-        retline = ft_substr(aux, 0, ft_strlen(aux));
         free(aux);
-        return (retline);
+        return (NULL); // Return NULL when no complete line is found.
     }
-    retline = ft_substr(aux, 0, ft_isthisline(aux) + 1);
-    *c = ft_substr(aux, ft_isthisline(aux) + 1, ft_strlen(aux));
-    free (aux);
+    retline = ft_substr(aux, 0, newline_index + 1);
+    *c = ft_substr(aux, newline_index + 1, ft_strlen(aux));
+    free(aux);
     return (retline);
 }
  
