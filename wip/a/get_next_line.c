@@ -1,19 +1,5 @@
 #include "get_next_line.h"
 
-static size_t ft_gotline(char *c)
-{
-    size_t i;
- 
-    i = 0;
-    while (c[i] != '\0')
-    {
-        if (c[i] == '\n')
-            return (i + 1);
-        i++;
-    }
-    return (i);
-}
-
 static int ft_isthisline(char *c)
 {
     size_t  a;
@@ -70,17 +56,16 @@ static char *ft_trimem(char **c)
         return NULL;
     free(*c); // Free the original memory before reassigning it the value of the concatenated string.
 
-    if (ft_gotline(aux) == 1)
+    if (ft_isthisline(aux) == 0)
         retline = ft_substr(aux, 0, 1);
     else
-        retline = ft_substr(aux, 0, ft_gotline(aux));
-
+        retline = ft_substr(aux, 0, ft_strlen(aux));
     if (ft_gotline(aux) == ft_strlen(aux))
     {
         free(aux);
         return retline;
     }
-    *c = ft_substr(aux, ft_gotline(aux) + 1, ft_strlen(aux));
+    *c = ft_substr(aux, (size_t)ft_gotline(aux) + 1, ft_strlen(aux));
     free(aux);
     return retline;
 }
