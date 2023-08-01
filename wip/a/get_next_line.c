@@ -59,7 +59,7 @@ static char *ft_trimem(char **c)
     if (ft_isthisline(aux) == 0)
         retline = ft_substr(aux, 0, 1);
     else
-        retline = ft_substr(aux, 0, ft_isthisline(aux) + 2);
+        retline = ft_substr(aux, 0, ft_isthisline(aux) + 1);
     if (ft_isthisline(aux) == -1)
     {
         free(aux);
