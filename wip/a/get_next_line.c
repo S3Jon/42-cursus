@@ -55,8 +55,8 @@ static char *ft_trimem(char **c)
         return (NULL);
     if (ft_isthisline(aux) == -1)
         return (aux);
-    retline = ft_substr(aux, 0, ft_isthisline(aux) + 1);
-    *c = ft_substr(aux, ft_isthisline(aux) + 1, ft_strlen(aux));
+    retline = ft_substr(aux, 0, (size_t)ft_isthisline(aux) + 1);
+    *c = ft_substr(aux, (size_t)ft_isthisline(aux) + 1, (ft_strlen(aux) - (size_t)ft_isthisline(aux) + 1));
     free (aux);
     return (retline);
 }
