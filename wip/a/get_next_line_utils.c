@@ -19,7 +19,6 @@ char    *ft_strdup(const char *s1)
         j++;
     }
     alt[i] = '\0';
-    free((char *)s1)
     return (alt);
 }
  
