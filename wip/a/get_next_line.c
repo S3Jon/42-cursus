@@ -32,15 +32,13 @@ static  void ft_getloan(int fd, char **c)
             return ;
         }
         temp[readbits] = '\0';
-    if (*c == NULL)
-    {
-        *c = ft_strdup(temp);
+        if (*c == NULL)
+            *c = ft_strdup(temp);
+        else
+            *c = ft_strjoin(*c, temp);
         free(temp);
-    }
-    else
-        *c = ft_strjoin(*c, temp);
-    if (ft_isthisline(*c) != -1)
-        return ;
+        if (ft_isthisline(*c) != -1)
+            return ;
     }
 }
  
