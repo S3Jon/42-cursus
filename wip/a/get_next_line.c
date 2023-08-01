@@ -78,7 +78,7 @@ static char	*ft_trimem(char **c)
 
 char	*get_next_line(int fd)
 {
-	static	char*	bank;
+	static char	*bank;
 
 	if ((fd < 0) || (BUFFER_SIZE <= 0))
 		return (NULL);
