@@ -46,7 +46,7 @@ static char ft_trimem(char **c)
     char *retline;
 
     aux = NULL;
-    *aux = ft_strdup(*c);
+    *aux = *ft_strdup(*c);
     retline = NULL;
     free(*c);
     if (ft_gotline(aux) == 1)
@@ -58,7 +58,7 @@ static char ft_trimem(char **c)
         free(aux);
         return (*retline);
     }
-    c = ft_substr(aux, ft_gotline(aux) + 1, ft_strlen(aux));
+    **c = *ft_substr(aux, ft_gotline(aux) + 1, ft_strlen(aux));
     free(aux);
     return (*retline);
 }
@@ -70,9 +70,9 @@ char* get_next_line(int fd)
     if ((fd < 0) || (BUFFER_SIZE <= 0))
         return (0);
     if (bank && ft_gotline(bank) != -1)
-        return(&ft_trimem(&bank));
+        return(ft_trimem(&bank));
     ft_getloan(fd, &bank);
     if (!bank)
         return (0);
-    return (&ft_trimem(&bank));    
+    return (ft_trimem(&bank));    
 }
