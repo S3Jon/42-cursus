@@ -25,12 +25,12 @@ static int	ft_isthisline(char *c)
 	}
 	return (-1);
 }
- 
+
 static int	ft_getloan(int fd, char **c)
 {
 	int		readbits;
 	char	*temp;
- 
+
 	readbits = 1;
 	while (readbits > 0)
 	{
@@ -54,7 +54,7 @@ static int	ft_getloan(int fd, char **c)
 	}
 	return (0);
 }
- 
+
 static char	*ft_trimem(char **c)
 {
 	char	*aux;
@@ -76,9 +76,9 @@ static char	*ft_trimem(char **c)
 	return (retline);
 }
 
-char*	get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char*	bank;
+	static	char*	bank;
 
 	if ((fd < 0) || (BUFFER_SIZE <= 0))
 		return (NULL);
@@ -96,5 +96,5 @@ char*	get_next_line(int fd)
 		bank = NULL;
 		return (NULL);
 	}
-	return (ft_trimem(&bank));    
+	return (ft_trimem(&bank));
 }
