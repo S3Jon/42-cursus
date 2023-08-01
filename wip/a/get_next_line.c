@@ -1,6 +1,6 @@
 #include "get_next_line.h"
 
-static size_t ft_gotline(char *c)
+static int ft_gotline(char *c)
 {
     int i;
 
@@ -50,7 +50,7 @@ static char ft_trimem(char **c)
     retline = NULL;
     free(*c);
     if (ft_gotline(aux) == 1)
-        *retline = ft_substr(aux,0, ft_strlen(aux));
+        *retline = ft_substr(aux, 0, ft_strlen(aux));
     else
         *retline = ft_substr(aux, 0, ft_gotline(aux));
     if (ft_gotline(aux) == ft_strlen(aux))
@@ -67,10 +67,10 @@ char* get_next_line(int fd)
 {
     static char* bank;
 
-    if ((fd < 0) || (BUFFER_SIZE =< 0))
+    if ((fd < 0) || (BUFFER_SIZE <= 0))
         return (0);
     if (bank && ft_gotline(bank) != -1)
-        return(ft_trimem(&bank));
+        return(*ft_trimem(&bank));
     ft_getloan(fd, &bank);
     if (!bank);
         return (0);

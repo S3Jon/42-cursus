@@ -32,7 +32,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-static size_t	ft_bestsz(char const *s, size_t i, size_t len)
+static int	ft_bestsz(char const *s, size_t i, size_t len)
 {
 	if (ft_strlen(&s[i]) <= len)
 		return (ft_strlen(&s[i]));
@@ -90,7 +90,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	aux[i + j] = '\0';
-    free(s1);
-    free(s2);
+    free(*s1);
+    free(*s2);
 	return (aux);
 }
