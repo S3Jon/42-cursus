@@ -49,6 +49,7 @@ static char *ft_trimem(char **c)
 
     aux = ft_strdup(*c);
     free(*c);
+    c* = NULL;
     if (!aux)
         return (NULL);
     if (ft_isthisline(aux) == -1)
