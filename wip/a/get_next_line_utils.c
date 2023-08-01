@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s1)
 	return (alt);
 }
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-static int	ft_bestsz(char const *s, size_t i, size_t len)
+static int	ft_bestsz(char const *s, int i, int len)
 {
 	if (ft_strlen(&s[i]) <= len)
 		return (ft_strlen(&s[i]));
@@ -40,11 +40,11 @@ static int	ft_bestsz(char const *s, size_t i, size_t len)
 		return (len);
 }
 
-char	*ft_substr(char const *s, int start, size_t len)
+char	*ft_substr(char const *s, int start, int len)
 {
 	char		*str;
-	size_t		i;
-	size_t		j;
+	int		i;
+	int		j;
 
 	i = start;
 	j = 0;
