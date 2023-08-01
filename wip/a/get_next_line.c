@@ -50,11 +50,11 @@ static char *ft_trimem(char **c)
     char *retline;
 
     aux = ft_strdup(*c);
+    free(*c);
     if (!aux)
         return (NULL);
-    free(*c);
     if (ft_isthisline(aux) == -1)
-        return (retline);
+        return (aux);
     retline = ft_substr(aux, 0, ft_isthisline(aux) + 1);
     *c = ft_substr(aux, ft_isthisline(aux) + 1, ft_strlen(aux));
     free (aux);
