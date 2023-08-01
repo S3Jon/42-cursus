@@ -21,7 +21,7 @@ static  void ft_getloan(int fd, char **c)
     char *temp;
 
     readbits = 1;
-    *temp = NULL;
+    temp = NULL;
     while (readbits > 0)
     {
         temp = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
@@ -45,15 +45,15 @@ static char ft_trimem(char **c)
     char *aux;
     char *retline;
 
-    *aux = NULL;
+    aux = NULL;
     *aux = ft_strdrup(*c);
-    *retline = NULL;
+    retline = NULL;
     free(*c);
-    if (ft_gotline(*aux) == 1)
+    if (ft_gotline(aux) == 1)
         *retline = ft_substr(aux,0, ft_strlen(aux));
     else
         *retline = ft_substr(aux, 0, ft_gotline(aux));
-    if (ft_gotline(*aux) == ft_strlen(aux))
+    if (ft_gotline(aux) == ft_strlen(aux))
     {
         free(aux);
         return (*retline);
