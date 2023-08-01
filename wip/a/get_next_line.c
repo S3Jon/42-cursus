@@ -59,7 +59,7 @@ static char *ft_trimem(char **c)
         free(aux);
         return (retline);
     }
-    retline = ft_substr(aux, 0, ft_isthisline(aux));
+    retline = ft_substr(aux, 0, ft_isthisline(aux) + 1);
     *c = ft_substr(aux, ft_isthisline(aux) + 1, ft_strlen(aux));
     free (aux);
     return (retline);
