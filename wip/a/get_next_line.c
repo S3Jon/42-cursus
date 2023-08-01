@@ -60,14 +60,14 @@ static char *ft_trimem(char **c)
         retline = ft_substr(aux, 0, 1);
     else
         retline = ft_substr(aux, 0, ft_strlen(aux));
-    if (ft_gotline(aux) == ft_strlen(aux))
+    if ((size_t)ft_isthisline(aux) == ft_strlen(aux))
     {
         free(aux);
-        return retline;
+        return (retline);
     }
-    *c = ft_substr(aux, (size_t)ft_gotline(aux) + 1, ft_strlen(aux));
+    *c = ft_substr(aux, (size_t)ft_isthisline(aux) + 1, ft_strlen(aux) - (ft_isthisline(aux) + 1));
     free(aux);
-    return retline;
+    return (retline);
 }
  
 char* get_next_line(int fd)
