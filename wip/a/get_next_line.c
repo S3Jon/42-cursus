@@ -34,7 +34,6 @@ static  void ft_getloan(int fd, char **c)
     char *temp;
  
     readbits = 1;
-    //temp = NULL;
     while (readbits > 0)
     {
         temp = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
@@ -53,9 +52,10 @@ static  void ft_getloan(int fd, char **c)
         free(temp);
     }
     else
-            *c = ft_strjoin(*c, temp);
-       if (ft_isthisline(*c) != -1)
-            return ;
+        *c = ft_strjoin(*c, temp);
+    free(temp);
+    if (ft_isthisline(*c) != -1)
+        return ;
     }
 }
  
