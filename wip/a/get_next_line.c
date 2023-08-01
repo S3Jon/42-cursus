@@ -14,7 +14,7 @@ static int ft_isthisline(char *c)
     return (-1);
 }
  
-static  void ft_getloan(int fd, char **c)
+static  int ft_getloan(int fd, char **c)
 {
     int readbits;
     char *temp;
@@ -24,12 +24,12 @@ static  void ft_getloan(int fd, char **c)
     {
         temp = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
         if (!temp)
-            return ;
+            return (0);
         readbits = read(fd, temp, BUFFER_SIZE);
         if (readbits <= 0)
         {
             free(temp);
-            return ;
+            return (-1);
         }
         temp[readbits] = '\0';
         if (*c == NULL)
@@ -38,7 +38,7 @@ static  void ft_getloan(int fd, char **c)
             *c = ft_strjoin(*c, temp);
         free(temp);
         if (ft_isthisline(*c) != -1)
-            return ;
+            return (0);
     }
 }
  
@@ -49,7 +49,7 @@ static char *ft_trimem(char **c)
 
     aux = ft_strdup(*c);
     free(*c);
-    c* = NULL;
+    *c = NULL;
     if (!aux)
         return (NULL);
     if (ft_isthisline(aux) == -1)
@@ -68,7 +68,12 @@ char* get_next_line(int fd)
         return (NULL);
     if (bank && ft_isthisline(bank) != -1)
         return(ft_trimem(&bank));
-    ft_getloan(fd, &bank);
+    if (ft_getloan(fd, &bank) == -1)
+    {
+        free(bank);
+        bank = NULL;
+        return (NULL);
+    }
     if (!bank || bank[0] == '\0')
     {
         free(bank);
