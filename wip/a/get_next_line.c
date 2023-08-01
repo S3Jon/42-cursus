@@ -13,6 +13,20 @@ static size_t ft_gotline(char *c)
     }
     return (i);
 }
+
+static int ft_isthisline(char *c)
+{
+    size_t  a;
+
+    a = 0;
+    while (c[a] != '\0')
+    {
+        if (c[a] == '\n')
+            return(a);
+        a++;
+    }
+    return (-1);
+}
  
 static  void ft_getloan(int fd, char **c)
 {
@@ -34,10 +48,13 @@ static  void ft_getloan(int fd, char **c)
         }
         temp[readbits] = '\0';
     if (*c == NULL)
-        *c = temp;
+    {
+        *c = ft_strdup(temp);
+        free(temp);
+    }
     else
             *c = ft_strjoin(*c, temp);
-       if (ft_gotline(*c) != ft_strlen(*c))
+       if (ft_isthisline(*c) != -1)
             return ;
     }
 }
@@ -46,23 +63,27 @@ static char *ft_trimem(char **c)
 {
     char *aux;
     char *retline;
- 
-    //aux = NULL;
-    *aux = *ft_strdup(*c);
-    //retline = NULL;
-    free(*c);
+
+    if (!c || !*c)
+        return NULL;
+    aux = ft_strdup(*c);
+    if (!aux)
+        return NULL;
+    free(*c); // Free the original memory before reassigning it the value of the concatenated string.
+
     if (ft_gotline(aux) == 1)
         retline = ft_substr(aux, 0, 1);
     else
         retline = ft_substr(aux, 0, ft_gotline(aux));
+
     if (ft_gotline(aux) == ft_strlen(aux))
     {
         free(aux);
-        return (retline);
+        return retline;
     }
-    **c = *ft_substr(aux, ft_gotline(aux) + 1, ft_strlen(aux));
+    *c = ft_substr(aux, ft_gotline(aux) + 1, ft_strlen(aux));
     free(aux);
-    return (retline);
+    return retline;
 }
  
 char* get_next_line(int fd)
