@@ -74,7 +74,7 @@ char* get_next_line(int fd)
     if (bank && ft_isthisline(bank) != -1)
         return(ft_trimem(&bank));
     ft_getloan(fd, &bank);
-    if (!bank)
+    if (!bank || bank == NULL)
         return (NULL);
     return (ft_trimem(&bank));    
 }
