@@ -91,7 +91,7 @@ char* get_next_line(int fd)
  
     if ((fd < 0) || (BUFFER_SIZE <= 0))
         return (0);
-    if (bank && (ft_gotline(bank) != ft_strlen(bank)))
+    if (bank && ft_isthisline(bank) != -1)
         return(ft_trimem(&bank));
     ft_getloan(fd, &bank);
     if (!bank)
