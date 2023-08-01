@@ -26,10 +26,12 @@ static  int ft_getloan(int fd, char **c)
         if (!temp)
             return (0);
         readbits = read(fd, temp, BUFFER_SIZE);
+        if (readbits == -1)
+            return (-1);
         if (readbits <= 0)
         {
             free(temp);
-            return (-1);
+            return (0);
         }
         temp[readbits] = '\0';
         if (*c == NULL)
@@ -40,6 +42,7 @@ static  int ft_getloan(int fd, char **c)
         if (ft_isthisline(*c) != -1)
             return (0);
     }
+    return (0);
 }
  
 static char *ft_trimem(char **c)
