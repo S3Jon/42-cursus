@@ -31,16 +31,8 @@ static  int ft_getloan(int fd, char **c)
 			free(temp);
 			return (-1);
 		}
-		//if (readbits <= 0)
-		//{
-		//	free(temp);
-		//	return (0);
-		//}
 		temp[readbits] = '\0';
-		if (*c == NULL)
-			*c = ft_strdup(temp);
-		else
-			*c = ft_strjoin(*c, temp);
+		*c = ft_strjoin(*c, temp);
 		free(temp);
 		if (ft_isthisline(*c) != -1)
 			return (0);
