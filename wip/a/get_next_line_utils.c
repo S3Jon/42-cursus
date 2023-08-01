@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
- 
+
 char	*ft_strdup(const char *s1)
 {
-    char	*alt;
-    size_t	i;
-    size_t	j;
+	char	*alt;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
