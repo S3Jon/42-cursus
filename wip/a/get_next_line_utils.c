@@ -40,7 +40,7 @@ static int	ft_bestsz(char const *s, size_t i, size_t len)
 		return (len);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, int start, size_t len)
 {
 	char		*str;
 	size_t		i;
@@ -90,7 +90,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	aux[i + j] = '\0';
-    free(*s1);
-    free(*s2);
+    free((char *)s1);
+    free((char *)s2);
 	return (aux);
 }
