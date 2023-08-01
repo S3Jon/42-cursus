@@ -12,24 +12,24 @@
 
 #include "get_next_line.h"
 
-static int ft_isthisline(char *c)
+static int	ft_isthisline(char *c)
 {
-	size_t  a;
+	size_t	a;
 
 	a = 0;
 	while (c[a] != '\0')
 	{
 		if (c[a] == '\n')
-			return(a);
+			return (a);
 		a++;
 	}
 	return (-1);
 }
  
-static  int ft_getloan(int fd, char **c)
+static int	ft_getloan(int fd, char **c)
 {
-	int readbits;
-	char *temp;
+	int		readbits;
+	char	*temp;
  
 	readbits = 1;
 	while (readbits > 0)
@@ -57,8 +57,8 @@ static  int ft_getloan(int fd, char **c)
  
 static char	*ft_trimem(char **c)
 {
-	char *aux;
-	char *retline;
+	char	*aux;
+	char	*retline;
 	size_t	sum;
 
 	sum = 0;
@@ -78,12 +78,12 @@ static char	*ft_trimem(char **c)
 
 char*	get_next_line(int fd)
 {
-	static char* bank;
+	static char*	bank;
 
 	if ((fd < 0) || (BUFFER_SIZE <= 0))
 		return (NULL);
 	if (bank && ft_isthisline(bank) != -1)
-		return(ft_trimem(&bank));
+		return (ft_trimem(&bank));
 	if (ft_getloan(fd, &bank) == -1)
 	{
 		free(bank);
