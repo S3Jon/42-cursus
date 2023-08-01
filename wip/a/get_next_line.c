@@ -49,23 +49,19 @@ static char *ft_trimem(char **c)
     char *aux;
     char *retline;
 
-    if (!c || !*c)
-        return NULL;
     aux = ft_strdup(*c);
     if (!aux)
-        return NULL;
+        return (NULL);
     free(*c);
     if (ft_isthisline(aux) == -1)
-        retline = ft_substr(aux, 0, ft_strlen(aux));
-    else
-        retline = ft_substr(aux, 0, ft_isthisline(aux) + 1);
-    if (ft_isthisline(aux) == -1)
     {
+        retline = ft_substr(aux, 0, ft_strlen(aux));
         free(aux);
         return (retline);
     }
-    *c = ft_substr(aux, (size_t)ft_isthisline(aux) + 1, ft_strlen(aux) - (ft_isthisline(aux) + 1));
-    free(aux);
+    retline = ft_substr(aux, 0, ft_isthisline(aux));
+    *c = ft_substr(aux, ft_isthisline(aux) + 1, ft_strlen(aux));
+    free (aux);
     return (retline);
 }
  
