@@ -37,7 +37,7 @@ static  void ft_getloan(int fd, char **c)
         *c = temp;
     else
             *c = ft_strjoin(*c, temp);
-       if (ft_gotline(*c) != -1)
+       if (ft_gotline(*c) != ft_strlen(*c))
             return ;
     }
 }
@@ -52,7 +52,7 @@ static char *ft_trimem(char **c)
     //retline = NULL;
     free(*c);
     if (ft_gotline(aux) == 1)
-        retline = ft_substr(aux, 0, ft_strlen(aux));
+        retline = ft_substr(aux, 0, 1);
     else
         retline = ft_substr(aux, 0, ft_gotline(aux));
     if (ft_gotline(aux) == ft_strlen(aux))

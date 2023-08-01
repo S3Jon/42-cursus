@@ -12,7 +12,7 @@
 char    *ft_strdup(const char *s1);
 size_t ft_strlen(const char *str);
 char    *ft_strjoin(char const *s1, char const *s2);
-char    *ft_substr(char const *s, int start, int len);
+char    *ft_substr(char const *s, size_t start, size_t len);
 char *get_next_line(int fd);
 
 #endif

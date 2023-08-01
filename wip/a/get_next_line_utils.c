@@ -3,8 +3,8 @@
 char    *ft_strdup(const char *s1)
 {
     char    *alt;
-    int     i;
-    int     j;
+    size_t     i;
+    size_t     j;
  
     i = 0;
     j = 0;
@@ -24,7 +24,7 @@ char    *ft_strdup(const char *s1)
  
 size_t ft_strlen(const char *str)
 {
-    int i;
+    size_t i;
  
     i = 0;
     while (str[i] != '\0')
@@ -32,23 +32,15 @@ size_t ft_strlen(const char *str)
     return (i);
 }
  
-static int  ft_bestsz(char const *s, int i, int len)
-{
-    if (ft_strlen(&s[i]) <= len)
-        return (ft_strlen(&s[i]));
-    else
-        return (len);
-}
- 
-char    *ft_substr(char const *s, int start, int len)
+char    *ft_substr(char const *s, size_t start, size_t len)
 {
     char        *str;
-    int     i;
-    int     j;
+    size_t     i;
+    size_t     j;
  
     i = start;
     j = 0;
-    if (ft_strlen(s) < start)
+    if (ft_strlen(s) < start && start != 0 && len != 1)
     {
         str = (char *)malloc(1);
         if (!str)
@@ -56,7 +48,7 @@ char    *ft_substr(char const *s, int start, int len)
         str[0] = '\0';
         return (str);
     }
-    str = (char *)malloc(1 + ft_bestsz(s, i, len));
+    str = (char *)malloc(1 + len);
     if (!str || len < 0)
         return (0);
     while (s[i + j] != '\0' && j < len)
