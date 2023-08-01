@@ -59,7 +59,9 @@ static char	*ft_trimem(char **c)
 {
 	char *aux;
 	char *retline;
+	size_t	sum;
 
+	sum = 0;
 	aux = ft_strdup(*c);
 	free(*c);
 	*c = NULL;
@@ -67,8 +69,9 @@ static char	*ft_trimem(char **c)
 		return (NULL);
 	if (ft_isthisline(aux) == -1)
 		return (aux);
-	retline = ft_substr(aux, 0, (size_t)ft_isthisline(aux) + 1);
-	*c = ft_substr(aux, (size_t)ft_isthisline(aux) + 1, (ft_strlen(aux) - (size_t)ft_isthisline(aux) + 1));
+	sum = (size_t)ft_isthisline(aux) + 1;
+	retline = ft_substr(aux, 0, sum);
+	*c = ft_substr(aux, sum, (ft_strlen(aux) - sum));
 	free (aux);
 	return (retline);
 }
