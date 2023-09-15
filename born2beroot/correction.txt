@@ -8,3 +8,8 @@
 	-usermod -a -G 'user42' 'name'
 	- vi /etc/hostname | vi /etc/hosts | etc/init.d/honstame.sh start
 	-lsblk
+--sudo
+	-dpkg -l | grep sudo
+	-visudo
+	-cd /var/log/sudo/
+	-cat sudo.log
