@@ -2,3 +2,9 @@
 	-sudo ufw status
 	-sudo systemctl status
 	-uname -a
+--user
+	-groups
+	-groupadd 'user42'
+	-usermod -a -G 'user42' 'name'
+	- vi /etc/hostname | vi /etc/hosts | etc/init.d/honstame.sh start
+	-lsblk
