@@ -13,3 +13,9 @@
 	-visudo
 	-cd /var/log/sudo/
 	-cat sudo.log
+--ufw:
+	-dpkg -l | grep ufw
+	-sudo ufw status
+	-sudo ufw allow 8080
+	-sudo ufw deny 8080
+	-sudo ufw status numbered -> sudo ufw delete (numero)
