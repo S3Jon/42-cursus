@@ -23,3 +23,10 @@
 	-dpkg -l | grep openssh
 	-sudo systemctl status sshd
 	-sudo cat /etc/ssh/sshd_config | grep Port
+--script:
+	-sudo cat /root/monitoring.sh
+	-systemctl status cron
+	-sudo crontab -e
+		-* * * * * bash /root/monitoring.sh | wall
+		-* * * * * (sleep 30; bash /root/monitoring.sh | wall)
+	#cron auto checks so no need for reboot
