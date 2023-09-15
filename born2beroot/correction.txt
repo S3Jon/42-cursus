@@ -19,3 +19,7 @@
 	-sudo ufw allow 8080
 	-sudo ufw deny 8080
 	-sudo ufw status numbered -> sudo ufw delete (numero)
+--ssh:
+	-dpkg -l | grep openssh
+	-sudo systemctl status sshd
+	-sudo cat /etc/ssh/sshd_config | grep Port
