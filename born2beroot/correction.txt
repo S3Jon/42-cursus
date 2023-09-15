@@ -1,0 +1,4 @@
+--Simple setup
+	-sudo ufw status
+	-sudo systemctl status
+	-uname -a
