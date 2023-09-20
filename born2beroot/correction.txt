@@ -1,6 +1,6 @@
 --Simple setup
 	-sudo ufw status
-	-sudo systemctl status
+	-sudo systemctl status ssh
 	-uname -a
 --user
 	-groups
