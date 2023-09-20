@@ -6,7 +6,7 @@
 	-groups
 	-groupadd 'user42'
 	-usermod -a -G 'user42' 'name'
-	- vi /etc/hostname | vi /etc/hosts | etc/init.d/honstame.sh start
+	- vi /etc/hostname | vi /etc/hosts | etc/init.d/honstame.sh start /////////// hostnamectl set-hostname (name)
 	-lsblk
 --sudo
 	-dpkg -l | grep sudo
