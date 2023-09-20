@@ -1,0 +1,16 @@
+>>Login as root
+apt install sudo
+usermod -aG sudo $youruser
+groupadd user42
+usermod -aG user42 $youruser
+exit
+>>Login $youruser
+sudo apt install ufw
+sudo apt install openssh-server
+sudo vi /etc/ssh/sshd_config
+  #Port22 -> Port 4242
+  #PermitRootLogin prohibit-password -> PermitRootLogin no
+sudo systemctl status sshd
+(if you use adapter do "ip a s" ad copy ip)
+>>Open local zsh
+ssh $youruser@ip -p 4242 (or "ssh $youruser@localhost -p 4242" depending on adapter settings)
