@@ -17,7 +17,8 @@
 	-dpkg -l | grep ufw
 	-sudo ufw status
 	-sudo ufw allow 8080
-	-sudo ufw deny 8080
+	-sudo ufw deny 8080 // sudo ufw delete (rule number)
+		-sudo ufw status numbered
 	-sudo ufw status numbered -> sudo ufw delete (numero)
 --ssh:
 	-dpkg -l | grep openssh
