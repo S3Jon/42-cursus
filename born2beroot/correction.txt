@@ -4,6 +4,7 @@
 	-uname -a
 --user
 	-groups
+	-sudo adduser user
 	-groupadd 'user42'
 	-usermod -a -G 'user42' 'name'
 	- vi /etc/hostname | vi /etc/hosts | etc/init.d/honstame.sh start /////////// hostnamectl set-hostname (name)
