@@ -30,3 +30,16 @@ sudo vi /etc/security/pwquality.conf - [Linux Die Net](https://linux.die.net/man
   "# maxrepeat = 0" -> 3\
   usercheck = 1\
   enforce_for_root\
+cd /var/log\
+sudo mkdir sudo\
+cd sudo\
+sudo touch sudo.log\
+sudo visudo\
+  //add the following\
+  //add ":/snap/bin" to the secure path string\
+  Defaults  passwd_tries=3\
+  Defaults  badpass_message="$Your_error_message"\
+  Defaults  log_input\
+  Defaults  log_output\
+  Defaults  logfile="/var/log/sudo/sudo.log\
+  Defaults  requiretty
