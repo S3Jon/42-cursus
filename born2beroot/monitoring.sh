@@ -25,7 +25,7 @@ cpuLOAD=$(top -bn1 | grep '^%Cpu' | xargs | awk '{printf("%.1f%%"), $2 + $4}')
 lastBOOT=$(who -b | awk '$1 == "system" {print $3 " " $4}')
 #lastBOOT=$(last reboot | sed -n '2p' | awk '{print $6" "$7" "$8}')
 # ---- LVM Status -----
-lvmSTATUS=$(if (((lsblk | grep lvm | wc -l) > 0)); then echo yes; else echo no; fi)
+lvmSTATUS=$(if ((lsblk | grep lvm | wc -l) > 0); then echo yes; else echo no; fi)
 #lvmSTATUS=$(if (lsblk | grep lvm | wc -l > 0); then echo yes; else echo no; fi)
 # ---- TCP CON # ----
 tcpCONN=$(ss | grep tcp |  wc -l)
