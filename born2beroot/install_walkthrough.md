@@ -1,10 +1,10 @@
-##### Login as root
+#### Login as root
 apt install sudo
 usermod -aG sudo $youruser
 groupadd user42
 usermod -aG user42 $youruser
 exit
-##### Login $youruser
+#### Login $youruser
 sudo apt install ufw
 sudo apt install openssh-server
 sudo vi /etc/ssh/sshd_config
@@ -14,7 +14,7 @@ sudo vi /etc/ssh/sshd_config
 sudo ufw allow 4242
 sudo systemctl status sshd
 (if you use adapter do "ip a s" ad copy ip)
-##### Open local zsh
+#### Open local zsh
 ssh $youruser@ip -p 4242 (or "ssh $youruser@localhost -p 4242" depending on adapter settings)
 sudo vi /etc/login.defs
   PASS_MAX_DAYS  99999 -> 30
