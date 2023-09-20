@@ -20,7 +20,7 @@ sudo vi /etc/login.defs
   PASS_MAX_DAYS  99999 -> 30
   PASS_MIN_DAYS  0 -> 2
 sudo apt install libpam-pwquality
-sudo vi /etc/security/pwquality.conf
+sudo vi /etc/security/pwquality.conf - [Linux Die Net](https://linux.die.net/man/5/pwquality.conf)
 //uncommnet changed settings
   # difok = 1 -> 7
   # minlen = 8 -> 10
