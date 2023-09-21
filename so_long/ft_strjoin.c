@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 11:42:11 by jonsanch          #+#    #+#             */
-/*   Updated: 2023/09/21 15:35:36 by jonsanch         ###   ########.fr       */
+/*   Created: 2022/08/29 10:22:29 by jonsanch          #+#    #+#             */
+/*   Updated: 2023/09/21 15:46:16 by jonsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
-
-int	main(int argc, char **argv)
+/* char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	map_fd;
+	int		i;
+	int		j;
+	char	*aux;
 
-	map_fd = open(argv[1], O_RDONLY);
-	if (argc != 2 || ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])) == 0
-		|| map_fd == -1)
-	{
-		printf("Error\n");
+	aux = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!aux)
 		return (0);
-	}
-	int i = 0;
-	char **map;
-	map = ft_map_create(map_fd);
-	while (i < 10)
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
 	{
-		printf("%s", map[i]);
+		aux[i] = s1[i];
+		i++;
 	}
-	free(map);
-	return (0);
-}
+	while (s2[j] != '\0')
+	{
+		aux[i + j] = s2[j];
+		j++;
+	}
+	aux[i + j] = '\0';
+	return (aux);
+} */

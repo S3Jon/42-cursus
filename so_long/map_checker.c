@@ -6,17 +6,43 @@
 /*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:55:03 by jonsanch          #+#    #+#             */
-/*   Updated: 2023/09/21 12:40:07 by jonsanch         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:44:23 by jonsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_map_check(int fd)
+char	*ft_singleline_map(int fd)
 {
-	while (get_next_line(fd))
+	char	*old;
+	char	*mix;
+	char	*new;
+	size_t	i;
+
+	i = 1;
+	new = NULL;
+	old = NULL;
+	while (i != 0)
 	{
-		printf("hola\n");
+		new = get_next_line(fd);
+		mix = ft_strjoin(old, new);
+		i = ft_strlen(new);
+		free(old);
+		free(new);
+		old = mix;
+		free(mix);
 	}
-	return (0);
+	return (old);
+}
+
+char	**ft_map_create(int fd)
+{
+	char	**map;
+	char	*one_line_map;
+
+	map = NULL;
+	one_line_map = NULL;
+	one_line_map = ft_singleline_map(fd);
+	map = ft_split(one_line_map, '\n');
+	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:49:08 by jonsanch          #+#    #+#             */
-/*   Updated: 2023/09/21 12:36:34 by jonsanch         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:40:36 by jonsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_substr(char const *s, size_t start, size_t len)
+/* char	*ft_substr(char const *s, size_t start, size_t len)
 {
 	char	*str;
 	size_t	i;
@@ -70,7 +70,7 @@ char	*ft_substr(char const *s, size_t start, size_t len)
 	}
 	str[j] = '\0';
 	return (str);
-}
+} */
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

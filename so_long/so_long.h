@@ -6,7 +6,7 @@
 /*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:48:24 by jonsanch          #+#    #+#             */
-/*   Updated: 2023/09/21 12:44:15 by jonsanch         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:43:22 by jonsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,21 @@
 char	*ft_strdup(const char *s1);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_substr(char const *s, size_t start, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
 int		ft_strnstr(const char *str, const char *to_find, size_t len);
-int		ft_map_check(int fd);
+char	**ft_map_create(int fd);
+char	**ft_split(char const *s, char c);
+
+typedef struct mapdata
+{
+	int		map_width;
+	int		map_height;
+	char	**map;
+	int		collectible_count;
+	int		start_count;
+	int		exit_count;
+}	t_mapdata;
 
 #endif
