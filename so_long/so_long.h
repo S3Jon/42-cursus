@@ -6,7 +6,7 @@
 /*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:48:24 by jonsanch          #+#    #+#             */
-/*   Updated: 2023/09/25 12:39:20 by jonsanch         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:12:10 by jonsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@
 
 size_t	ft_strlen(const char *str);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
-//char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
+char	**ft_killitall(char **a);
 int		ft_read_fd(int fd, char **c);
 /* typedef struct mapdata
 {
@@ -37,4 +38,3 @@ int		ft_read_fd(int fd, char **c);
 }	t_mapdata;
  */
 #endif
-

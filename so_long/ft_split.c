@@ -6,7 +6,7 @@
 /*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:33:02 by jonsanch          #+#    #+#             */
-/*   Updated: 2023/09/25 12:38:44 by jonsanch         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:11:59 by jonsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char	*ft_csubs(const char *s, size_t i, size_t j)
 	return (a);
 }
 
-static char	**ft_killitall(char **a)
+char	**ft_killitall(char **a)
 {
 	size_t	c;
 
@@ -72,7 +72,7 @@ static char	**ft_killitall(char **a)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	size_t		i;
 	size_t		j;

@@ -6,7 +6,7 @@
 /*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:42:11 by jonsanch          #+#    #+#             */
-/*   Updated: 2023/09/25 12:47:39 by jonsanch         ###   ########.fr       */
+/*   Updated: 2023/09/25 13:16:25 by jonsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,19 @@
 #include <stdlib.h>
 //for testing purposes
 
+void	ft_clear_map(char *singleline_map)
+{
+	free(singleline_map);
+	singleline_map = NULL;
+}
+
 int	ft_readymap(int	fd)
 {
 	char	*singleline_map;
-//	char	**ms_map;
+	char	**ms_map;
 
 	singleline_map = NULL;
+	ms_map = NULL;
 	if (ft_read_fd(fd, &singleline_map) == -1)
 	{
 		free(singleline_map);
@@ -32,16 +39,18 @@ int	ft_readymap(int	fd)
 	}
 	printf("\n");
 	printf("\n%s\n", singleline_map);
-	free(singleline_map);
-	singleline_map = NULL;
-	//ms_map = ft_split(singleline_map, '\n');
-	//if (!ms_map)
-	//	return (-1);
-	//free(singleline_map);
-	//int	i = 0;
-	//while (i < 10)
-	//	printf("%s\n", ms_map[i++]);
-	//free(ms_map);
+	ms_map = ft_split(singleline_map, '\n');
+	ft_clear_map(singleline_map);
+	if (!ms_map)
+	{
+		printf("///ERROR IN SPLIT///");
+		return (-1);
+	}
+	int	i = 0;
+	printf("\n---Splitted map---\n");
+	while (ms_map[i] != NULL)
+		printf("%s\n", ms_map[i++]);
+	ft_killitall(ms_map); //for testing purposes
 	return (0);
 }
 
