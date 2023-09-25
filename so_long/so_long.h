@@ -6,7 +6,7 @@
 /*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 14:48:24 by jonsanch          #+#    #+#             */
-/*   Updated: 2023/09/21 16:00:04 by jonsanch         ###   ########.fr       */
+/*   Updated: 2023/09/25 12:39:20 by jonsanch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,15 @@
 # include <math.h>
 # include <fcntl.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 20000
+# endif
 
-
-typedef struct mapdata
+size_t	ft_strlen(const char *str);
+char	*ft_strnstr(const char *str, const char *to_find, size_t len);
+//char	**ft_split(char const *s, char c);
+int		ft_read_fd(int fd, char **c);
+/* typedef struct mapdata
 {
 	int		map_width;
 	int		map_height;
@@ -29,5 +35,6 @@ typedef struct mapdata
 	int		start_count;
 	int		exit_count;
 }	t_mapdata;
-
+ */
 #endif
+
