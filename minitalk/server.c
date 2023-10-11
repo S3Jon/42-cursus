@@ -21,7 +21,7 @@ void    ft_handler(int signal, siginfo_t *data, void *extra)
 		i = 0;
 		c = 0;
 	}
-	if(kill(info->si_pid, SIGUSR1) == -1)
+	if(kill(data->si_pid, SIGUSR1) == -1)
 	{
 		ft_putstr_fd("Sigaction error\n", 1);
 		return ;
