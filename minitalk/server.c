@@ -40,7 +40,7 @@ int main(void)
 	ft_putchar_fd('\n', 1);
 	if (sigaction(SIGUSR1, &sigsv, NULL) == -1 || sigaction(SIGUSR2, &sigsv, NULL) == -1)
 	{
-		ft_putstr_fd("Sigaction error\n");
+		ft_putstr_fd("Sigaction error\n", 1);
 		return(-1);
 	}
     while(1)
