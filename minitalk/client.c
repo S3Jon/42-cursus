@@ -1,8 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jonsanch <jonsanch@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/11 10:36:37 by jonsanch          #+#    #+#             */
+/*   Updated: 2023/10/11 11:33:38 by jonsanch         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minitalk.h"
 
 /*
-	we shall know WHEN the server has recieved and handled the sent kill once it tells us it's done
-	no more collisions :D
+	we shall know WHEN the server has recieved
+	and handled the sent kill once it tells us
+   	it's done	no more collisions :D
 */
 int	g_reply = 1;
 
@@ -23,18 +36,17 @@ void	ft_sendmsg(int id, char *msg)
 	k = 0;
 	while (msg[k] != '\0')
 	{
-        act = msg[k];
+		act = msg[k];
 		i = 7;
 		while (i >= 0)
 		{
 			g_reply = 1;
 			if ((act >> i) & 1)
-
 				kill(id, SIGUSR2);
 			else
 				kill(id, SIGUSR1);
-            i--;
-            while(g_reply == 1)
+			i--;
+			while (g_reply == 1)
 				usleep(1);
 		}
 		k++;
@@ -45,9 +57,11 @@ void	ft_sendmsg(int id, char *msg)
 	sigaction args:
 		1- signal tipe (SIGUSR1/2 in this case)
 		2- struct sigaction:
-			-handler: set a default behavior or a handler funct -> ft_handler to handle kill replies
+			-handler: set a default behavior or a 
+			handler funct -> ft_handler to handle kill replies
 			-mask: signals to be blocked -> none || sigemptyset?
-			-sa_flags: flags for behavior; SA_SIGINFO reviece additional info for when a signal is sent
+			-sa_flags: flags for behavior; SA_SIGINFO recieve
+		    additional info for when a signal is sent
 		3- where to return old handler info // NULL
 
 	https://www.youtube.com/watch?v=_1TuZUbCnX0
@@ -64,16 +78,25 @@ int	main(int argc, char **argv)
 	int					pid;
 
 	if (argc != 3)
+	{
+		ft_putstr_fd("Error: wrong number of arguments\n", 1);
 		return (0);
+	}
 	else
 	{
 		pid = ft_atoi(argv[1]);
+		if (pid <= 0)
+		{
+			ft_putstr_fd("Error in PID\n", 1);
+			return (0);
+		}
 		sigcli.sa_sigaction = &ft_handler;
 		sigemptyset(&sigcli.sa_mask);
 		sigcli.sa_flags = SA_SIGINFO;
-		if (sigaction(SIGUSR1, &sigcli, NULL) == -1 || sigaction(SIGUSR2, &sigcli, NULL) == -1)
+		if (sigaction(SIGUSR1, &sigcli, NULL) == -1
+			|| sigaction(SIGUSR2, &sigcli, NULL) == -1)
 			exit(EXIT_FAILURE);
-		ft_sendmsg(pid, argv[2]);		
+		ft_sendmsg(pid, argv[2]);
 	}
 	return (0);
 }
